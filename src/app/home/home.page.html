@@ -1,20 +1,123 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <ion-img slot="start" style="height: 30px; width: 30px;margin-left: 15px;" [src]="'assets/icon/virus.png'">
+    </ion-img>
     <ion-title>
-      Blank
+      Çıkabilir miyim?
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <ion-card class="ion-padding">
+      <h2>Nedir?</h2>
+      <p>
+        2020 Kasım ayında uygulanan yeni kovid-19 yasalarına dayalı olarak, bu site, "Şuan dışarı
+        çıkabilir miyim?" sorusuna anlık cevap vermek için yapıldı. <br>
+        Zaman girmenize gerek yok, sadece alttaki alanlarda yaş grubunuzu ve çalışma durumunuzu kendinize göre
+        değiştirmeniz yeterli. <br>
+        İletişim bilgileri ve kod kaynağı sayfanın alt kısmına yerleştirildi.
+      </p>
+      <p *ngIf="viewCount">Ziyaret sayısı: {{ viewCount }}</p>
+    </ion-card>
+
+    <ion-card>
+      <ion-list *ngIf="depends">
+        <ion-list-header>
+          <ion-label>
+            Bilgilerinizi girin
+          </ion-label>
+        </ion-list-header>
+
+        <ion-item>
+          <ion-label>Yaş grubu</ion-label>
+          <ion-select interface="popover" [(ngModel)]="ageGroup" (ionChange)="calculate()">
+            <ion-select-option value="minor">20 ve altı</ion-select-option>
+            <ion-select-option value="adult">21 - 64</ion-select-option>
+            <ion-select-option value="senior">65 ve üstü</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Çalışma durumu</ion-label>
+          <ion-select interface="popover" [(ngModel)]="works" (ionChange)="calculate()">
+            <ion-select-option value="yes">Çalışıyorum</ion-select-option>
+            <ion-select-option value="no">Çalışmıyorum</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="ion-text-wrap">* Bilgilerinizi saklayacak bir alan için paramız yok, açıkçası emin olun
+            umrumuzda da değil.
+            Toplamiyoruz, biyere de göndermiyoruz, bu proje açık kaynaklıdır.</ion-label>
+        </ion-item>
+
+      </ion-list>
+    </ion-card>
+
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title><span [ngStyle]="{color: result.canGoOut?'Green':'red'}">{{ result.header }}</span>
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        {{ result.reason }}
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card *ngIf="showDaily">
+      <ion-card-header>
+        <ion-card-title color="warning">Vaka sayıları</ion-card-title>
+        <ion-card-subtitle>{{ currentFormatedDate }}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <p>
+          <strong>Yeni: {{ daily.todayCases }}</strong>
+        </p>
+        <p>
+          <strong>Aktif: {{ daily.active }}</strong>
+        </p>
+        <p>
+          <strong>Kritik hasta: {{ daily.critical }}</strong>
+        </p>
+        <p>* Verilerin doğru olmasını garanti edemiyoruz.</p>
+      </ion-card-content>
+    </ion-card>
+
   </div>
+
 </ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-row>
+      <ion-col style="display: flex;" class="ion-justify-content-center" size="12">
+        <ion-button shape="round" color="dark" href="https://twitter.com/antoniormrzz" target="_blank"
+          class="round-button">
+          <ion-icon slot="icon-only" name="logo-twitter"></ion-icon>
+        </ion-button>
+        <ion-button shape="round" color="dark" href="https://github.com/antoniormrzz/cikabilirmiyim" target="_blank"
+          class="round-button">
+          <ion-icon slot="icon-only" name="logo-github"></ion-icon>
+        </ion-button>
+        <ion-button shape="round" color="dark" href="https://www.linkedin.com/in/sepehr-alizadeh-4530408a/"
+          target="_blank" class="round-button">
+          <ion-icon slot="icon-only" name="logo-linkedin"></ion-icon>
+        </ion-button>
+        <ion-button shape="round" color="dark" href="https://patreon.com/antoniormrzz" target="_blank"
+          class="round-button">
+          <ion-icon slot="icon-only" name="wallet"></ion-icon>
+        </ion-button>
+        <!-- <ion-button shape="round" color="dark" href="https://www.flaticon.com/authors/freepik" target="_blank">
+          <ion-icon slot="icon-only" name="brush"></ion-icon>
+        </ion-button> -->
+      </ion-col>
+    </ion-row>
+    <ion-row style="text-align: center;">
+      <ion-col size="12">
+        Antonio Ramirez 2020 ©
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>
