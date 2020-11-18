@@ -1,6 +1,6 @@
 # cikabilirmiyim
-Kovid 19 yeni yasalarına göre, şuan evden ÇIKABİLİRMİYİM?
-[ÇIKABİLİRMİYİM](https://cikabilirmiyim.netlify.app)
+Kovid 19 yeni yasalarına göre, şuan evden [ÇIKABİLİRMİYİM](https://cikabilirmiyim.netlify.app)?
+
 
 ## Nedir?
       
