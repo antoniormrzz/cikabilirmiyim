@@ -2,7 +2,7 @@
 Kovid 19 yeni yasalarına göre, şuan evden ÇIKABİLİRMİYİM?
 [ÇIKABİLİRMİYİM](https://cikabilirmiyim.netlify.app)
 
-##Nedir?
+## Nedir?
       
         2020 Kasım ayında uygulanan yeni kovid-19 yasalarına dayalı olarak, bu site, "Şuan dışarı
         çıkabilir miyim?" sorusuna anlık cevap vermek için yapıldı.
