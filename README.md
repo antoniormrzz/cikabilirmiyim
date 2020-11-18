@@ -1,5 +1,6 @@
 # cikabilirmiyim
 Kovid 19 yeni yasalarına göre, şuan evden ÇIKABİLİRMİYİM?
+[ÇIKABİLİRMİYİM](https://cikabilirmiyim.netlify.app)
 
 ##Nedir?
       
@@ -9,3 +10,5 @@ Kovid 19 yeni yasalarına göre, şuan evden ÇIKABİLİRMİYİM?
         değiştirmeniz yeterli.
         İletişim bilgileri ve kod kaynağı sayfanın alt kısmına yerleştirildi.
         
+## icon credits
+[freepik](https://www.flaticon.com/authors/freepik)
